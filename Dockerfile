@@ -3,7 +3,7 @@ FROM ${PROXY_REGISTRY}nginx:alpine
 
 HEALTHCHECK CMD curl --fail http://localhost${APP_BASE}/index.php || exit 1
 
-COPY .docker/web-nginx/nginx.conf /etc/nginx/templates/nginx.conf.template
+COPY ./nginx.conf /etc/nginx/templates/nginx.conf.template
 
 # By default, nginx will send the php requests to "app" server, but this server
 # name can be overridden at runtime by passing an APP_UPSTREAM env var
